@@ -24,7 +24,7 @@ if __name__ == "__main__":
     criterion = nn.MSELoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
-    # Generate random training data
+    # Generate random training data_handler
     x_train = torch.rand(100, 10, 1)  # (samples, timesteps, features)
     y_train = torch.rand(100, 1)      # (samples, output_dimension)
 

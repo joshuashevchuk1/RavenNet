@@ -25,7 +25,7 @@ if __name__ == "__main__":
     model = LSTMModel(input_size, hidden_size, output_size, num_layers)
     model.initialize()
 
-    # Generate random training data
+    # Generate random training data_handler
     x_train = mx.nd.random.uniform(shape=(100, 10, 1))  # (samples, timesteps, features)
     y_train = mx.nd.random.uniform(shape=(100, 1))      # (samples, output_dimension)
 
