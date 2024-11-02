@@ -1,13 +1,10 @@
 #!/usr/bin/python
 
-import multiprocessing
+import api.app
 
 def run_flask_app():
-    # server = pythonTrainerServer.Mapflask(config.mapflask_port)
-    # mapflask_server.run_server()
-    return
+     server = api.app.Ravenflask("9020")
+     server.run_server()
 
 if __name__ == '__main__':
-    flask_process = multiprocessing.Process(target=run_flask_app)
-    # Start the Flask process
-    flask_process.start()
+    run_flask_app()
