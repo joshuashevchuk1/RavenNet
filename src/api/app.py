@@ -1,5 +1,7 @@
 from flask import Flask
 
+import raven_ai.mxnet_ai.mxnet_trainer
+
 class Ravenflask():
     def __init__(self, port):
         self.port = port
@@ -12,8 +14,15 @@ class Ravenflask():
         return "healthcheck", 200
 
     def add_routes(self):
-        self.app.add_url_rule('/', 'home', self.home, methods=["GET"])
-        self.app.add_url_rule('/healthCheck', 'health_check', self.health_check, methods=["GET"])
+        self.app.add_url_rule(
+            '/', 'home', self.home, methods=["GET"]
+        )
+        self.app.add_url_rule(
+            '/healthCheck', 'health_check', self.health_check, methods=["GET"]
+        )
+        self.app.add_url_rule(
+            '/train','train',raven_ai.mxnet_ai.mxnet_trainer.LSTMTrainer.train, methods=["POST"]
+        )
 
     def run_server(self):
         self.add_routes()
